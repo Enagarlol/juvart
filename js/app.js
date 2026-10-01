@@ -4,19 +4,21 @@
    (contacto, mapa, horario y redes sociales).
    ========================================================== */
 const ESTUDIO = {
-  whatsapp: '',   // con lada de país, solo números. Ej: '5219991234567'
-  telefono: '',   // como quieres que se vea. Ej: '999 123 4567'
-  correo: '',     // Ej: 'hola@juvart.com'
-  direccion: '',  // Ej: 'Calle 60 #123, Centro, Mérida, Yucatán'
+  whatsapp: '529621909505',  // con lada de país, solo números
+  telefono: '962 190 9505',  // como quieres que se vea
+  correo: 'juvart1908@gmail.com',
+  direccion: 'Tapachula, Chiapas',  // texto que se muestra. Ej: 'Calle 60 #123, Centro, Tapachula, Chiapas'
+  // Enlace "src" del mapa: Google Maps > Compartir > Insertar un mapa
+  mapaEmbed: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d240.9841161864938!2d-92.29186535586159!3d14.895482669002337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1790841773713!5m2!1ses-419!2smx',
+  // Enlace del botón "Cómo llegar": Google Maps > Compartir > Copiar vínculo
+  mapaEnlace: 'https://maps.app.goo.gl/TgRYBWBsm1cS3T82A',
   horario: [
-    ['Lunes a viernes', '10:00 – 19:00'],
-    ['Sábado', '10:00 – 14:00'],
-    ['Domingo', 'Previa cita'],
+    ['Todos los días', '24 horas'],
   ],
-  // Pega aquí el enlace completo de cada red. Las que queden vacías no llevan a ningún lado.
+  // Pega aquí el enlace completo de cada red. Las que queden vacías no se muestran.
   redes: {
-    facebook: '',
-    instagram: '',
+    facebook: 'https://www.facebook.com/profile.php?id=100064420225077',
+    instagram: 'https://www.instagram.com/juvart_estudiofotografico/',
     tiktok: '',
     youtube: '',
   },
@@ -107,7 +109,7 @@ function ponerDato(id, texto, href) {
 }
 const soloNumeros = (t) => t.replace(/\D/g, '');
 
-ponerDato('dato-whatsapp', ESTUDIO.whatsapp && '+' + soloNumeros(ESTUDIO.whatsapp), 'https://wa.me/' + soloNumeros(ESTUDIO.whatsapp));
+ponerDato('dato-whatsapp', ESTUDIO.whatsapp && (ESTUDIO.telefono || '+' + soloNumeros(ESTUDIO.whatsapp)),'https://wa.me/' + soloNumeros(ESTUDIO.whatsapp));
 ponerDato('dato-telefono', ESTUDIO.telefono, 'tel:' + soloNumeros(ESTUDIO.telefono));
 ponerDato('dato-correo', ESTUDIO.correo, 'mailto:' + ESTUDIO.correo);
 
@@ -115,22 +117,28 @@ document.getElementById('dato-horario').innerHTML = ESTUDIO.horario
   .map(([dia, horas]) => `<div><dt>${dia}</dt><dd>${horas}</dd></div>`)
   .join('');
 
-if (ESTUDIO.direccion) {
-  const consulta = encodeURIComponent(ESTUDIO.direccion);
-  document.getElementById('dato-direccion').textContent = ESTUDIO.direccion;
-  document.getElementById('como-llegar').href = 'https://www.google.com/maps/dir/?api=1&destination=' + consulta;
+if (ESTUDIO.direccion) document.getElementById('dato-direccion').textContent = ESTUDIO.direccion;
+
+// Sin enlace ni embed propios, el mapa y la ruta se arman a partir de la dirección escrita
+const consultaMapa = encodeURIComponent(ESTUDIO.direccion);
+const mapaSrc = ESTUDIO.mapaEmbed || (ESTUDIO.direccion && `https://www.google.com/maps?q=${consultaMapa}&output=embed`);
+const mapaEnlace = ESTUDIO.mapaEnlace || (ESTUDIO.direccion && 'https://www.google.com/maps/dir/?api=1&destination=' + consultaMapa);
+
+if (mapaSrc) {
   document.getElementById('mapa').innerHTML =
-    `<iframe title="Mapa de ubicación de JuvArt" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=${consulta}&output=embed"></iframe>`;
+    `<iframe title="Mapa de ubicación de JuvArt" loading="lazy" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" src="${mapaSrc}"></iframe>`;
+}
+if (mapaEnlace) {
+  document.getElementById('como-llegar').href = mapaEnlace;
 } else {
   document.getElementById('como-llegar').removeAttribute('target');
 }
 
 /* ---------- Redes sociales ---------- */
 document.querySelectorAll('[data-redes]').forEach((caja) => {
-  caja.innerHTML = Object.entries(ESTUDIO.redes).map(([red, url]) => {
+  caja.innerHTML = Object.entries(ESTUDIO.redes).filter(([, url]) => url).map(([red, url]) => {
     const nombre = red.charAt(0).toUpperCase() + red.slice(1);
-    const destino = url ? `href="${url}" target="_blank" rel="noopener"` : 'href="#contacto"';
-    return `<a ${destino} aria-label="${nombre}" title="${nombre}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONOS_REDES[red]}</svg></a>`;
+    return `<a href="${url}" target="_blank" rel="noopener" aria-label="${nombre}" title="${nombre}"><svg viewBox="0 0 24 24" aria-hidden="true">${ICONOS_REDES[red]}</svg></a>`;
   }).join('');
 });
 
