@@ -8,8 +8,8 @@ const ESTUDIO = {
   telefono: '962 190 9505',  // como quieres que se vea
   correo: 'juvart1908@gmail.com',
   direccion: 'Tapachula, Chiapas',  // texto que se muestra. Ej: 'Calle 60 #123, Centro, Tapachula, Chiapas'
-  // Enlace "src" del mapa: Google Maps > Compartir > Insertar un mapa
-  mapaEmbed: 'https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d240.9841161864938!2d-92.29186535586159!3d14.895482669002337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx!4v1790841773713!5m2!1ses-419!2smx',
+  // Mapa con marcador en las coordenadas del estudio (latitud,longitud en "q"; "z" es el zoom)
+  mapaEmbed: 'https://www.google.com/maps?q=14.895524,-92.291799&z=18&hl=es-419&output=embed',
   // Enlace del botón "Cómo llegar": Google Maps > Compartir > Copiar vínculo
   mapaEnlace: 'https://maps.app.goo.gl/TgRYBWBsm1cS3T82A',
   horario: [
