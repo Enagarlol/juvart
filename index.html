@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JuvArt · Estudio de Fotografía & Video</title>
+  <meta name="description" content="JuvArt, estudio de fotografía y video. Bodas, XV años, sesiones de estudio, graduaciones y eventos.">
+  <meta name="theme-color" content="#F6F3EC">
+  <link rel="icon" type="image/png" href="img/isotipo-negro.png">
+
+  <!-- Aplica el tema guardado antes de pintar, para evitar parpadeo -->
+  <script>
+    (function () {
+      var guardado = null;
+      try { guardado = localStorage.getItem('juvart-tema'); } catch (e) {}
+      var oscuro = guardado ? guardado === 'oscuro' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.setAttribute('data-theme', oscuro ? 'oscuro' : 'claro');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="encabezado" id="encabezado">
+    <div class="contenedor encabezado__fila">
+      <a class="marca" href="#inicio" aria-label="JuvArt, ir al inicio">
+        <img class="solo-claro" src="img/isotipo-negro.png" alt="" width="360" height="232">
+        <img class="solo-oscuro" src="img/isotipo-blanco.png" alt="" width="360" height="232">
+        <span class="marca__nombre">JuvArt</span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Principal">
+        <a href="#inicio">Presentación</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#direccion">Dirección</a>
+      </nav>
+
+      <div class="encabezado__acciones">
+        <button class="boton-icono" id="cambiar-tema" type="button" aria-label="Cambiar a modo oscuro">
+          <svg class="icono-luna" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+          <svg class="icono-sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
+        </button>
+        <a class="boton boton--primario encabezado__cta" href="#contacto">Reservar</a>
+        <button class="boton-icono menu-boton" id="menu-boton" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- ============ PRESENTACIÓN ============ -->
+    <section class="hero" id="inicio">
+      <div class="contenedor hero__grid">
+        <div class="hero__texto">
+          <p class="etiqueta">Estudio Fotografía &amp; Video</p>
+          <h1>Tus momentos, <em>contados con arte.</em></h1>
+          <p class="hero__intro">
+            En JuvArt convertimos lo que vives en imágenes que querrás volver a ver.
+            Fotografía y video para bodas, XV años, retratos y eventos, hechos con
+            cuidado en cada detalle: de la luz a la entrega final.
+          </p>
+          <div class="hero__botones">
+            <a class="boton boton--primario" href="#contacto">Reservar una sesión</a>
+            <a class="boton boton--linea" href="#paquetes">Ver paquetes</a>
+          </div>
+        </div>
+
+        <figure class="visor">
+          <div class="visor__marco">
+            <img src="img/equipo.jpg" alt="El equipo de JuvArt en el estudio, con cámaras y equipo de iluminación" width="1334" height="2000">
+            <span class="visor__esquina visor__esquina--si" aria-hidden="true"></span>
+            <span class="visor__esquina visor__esquina--sd" aria-hidden="true"></span>
+            <span class="visor__esquina visor__esquina--ii" aria-hidden="true"></span>
+            <span class="visor__esquina visor__esquina--id" aria-hidden="true"></span>
+          </div>
+          <figcaption class="visor__datos">
+            <span>El equipo JuvArt</span>
+            <span aria-hidden="true">ƒ/2.8 · 1/160 · ISO 100</span>
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="cinta" aria-hidden="true">
+        <div class="cinta__pista">
+          <span>Bodas</span><span>XV Años</span><span>Retrato</span><span>Graduaciones</span><span>Eventos</span><span>Video</span><span>Familia</span><span>Producto</span>
+          <span>Bodas</span><span>XV Años</span><span>Retrato</span><span>Graduaciones</span><span>Eventos</span><span>Video</span><span>Familia</span><span>Producto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="seccion" id="servicios">
+      <div class="contenedor">
+        <header class="seccion__cabecera revelar">
+          <p class="etiqueta">Servicios</p>
+          <h2>Lo que hacemos</h2>
+          <p class="seccion__bajada">Foto y video para cada etapa. Cuéntanos tu idea y la aterrizamos contigo.</p>
+        </header>
+
+        <div class="servicios">
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="14" r="5"/><circle cx="15" cy="14" r="5"/><path d="M7.5 5.5 9 4l1.5 1.5L9 7z"/></svg>
+            <h3>Bodas</h3>
+            <p>Cobertura completa del gran día: preparativos, ceremonia y fiesta, en foto y video.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17 3 8l5 4 4-6 4 6 5-4-1 9z"/><path d="M4 20h16"/></svg>
+            <h3>XV Años</h3>
+            <p>Sesión previa, evento y video destacado para recordar una noche irrepetible.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 20c.6-3.6 3.4-6 7-6s6.400 2.400 7 6"/></svg>
+            <h3>Sesiones de estudio</h3>
+            <p>Retrato individual, pareja, familia o embarazo, con iluminación profesional.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11.500V16c1.600 1.500 3.600 2.200 6 2.200s4.400-.7 6-2.200v-4.500M22 9v5"/></svg>
+            <h3>Graduaciones</h3>
+            <p>Fotos individuales y grupales, toga y birrete, y cobertura de la ceremonia.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l1.800 4.700L18.500 9.500 13.800 11.300 12 16l-1.800-4.700L5.500 9.500l4.700-1.800z"/><path d="M18.500 15.500l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></svg>
+            <h3>Eventos sociales</h3>
+            <p>Bautizos, cumpleaños, aniversarios y eventos de empresa, sin perder un momento.</p>
+          </article>
+          <article class="servicio revelar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="6.500" width="12" height="11" rx="2"/><path d="m15 10.500 6-3v9l-6-3z"/></svg>
+            <h3>Video</h3>
+            <p>Grabación y edición: videos de evento, reels para redes y piezas promocionales.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PAQUETES ============ -->
+    <section class="seccion seccion--tinte" id="paquetes">
+      <div class="contenedor">
+        <header class="seccion__cabecera revelar">
+          <p class="etiqueta">Paquetes</p>
+          <h2>Elige el tuyo</h2>
+          <p class="seccion__bajada">Tres puntos de partida. Todos se pueden ajustar a lo que necesites.</p>
+        </header>
+
+        <div class="paquetes">
+          <article class="paquete revelar">
+            <h3>Esencial</h3>
+            <p class="paquete__para">Para sesiones cortas y retratos.</p>
+            <p class="paquete__precio"><span>$0,000</span></p>
+            <ul>
+              <li>1 hora de sesión en estudio</li>
+              <li>15 fotografías editadas</li>
+              <li>1 cambio de vestuario</li>
+              <li>Entrega digital</li>
+            </ul>
+            <a class="boton boton--linea" href="#contacto" data-paquete="Esencial">Lo quiero</a>
+          </article>
+
+          <article class="paquete paquete--destacado revelar">
+            <p class="paquete__sello">Más elegido</p>
+            <h3>Clásico</h3>
+            <p class="paquete__para">Para XV años, graduaciones y eventos.</p>
+            <p class="paquete__precio"><span>$0,000</span></p>
+            <ul>
+              <li>Cobertura de 4 horas</li>
+              <li>80 fotografías editadas</li>
+              <li>Sesión previa en estudio</li>
+              <li>Video destacado de 1 minuto</li>
+              <li>Galería en línea</li>
+            </ul>
+            <a class="boton boton--primario" href="#contacto" data-paquete="Clásico">Lo quiero</a>
+          </article>
+
+          <article class="paquete revelar">
+            <h3>Premium</h3>
+            <p class="paquete__para">Para bodas y eventos completos.</p>
+            <p class="paquete__precio"><span>$0,000</span></p>
+            <ul>
+              <li>Cobertura de todo el evento</li>
+              <li>Fotografías editadas sin límite</li>
+              <li>Video completo y video destacado</li>
+              <li>Sesión previa en locación</li>
+              <li>Álbum impreso</li>
+            </ul>
+            <a class="boton boton--linea" href="#contacto" data-paquete="Premium">Lo quiero</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="seccion" id="contacto">
+      <div class="contenedor contacto">
+        <div class="contacto__info revelar">
+          <p class="etiqueta">Contacto</p>
+          <h2>Hablemos de tu fecha</h2>
+          <p class="seccion__bajada">Escríbenos qué tienes en mente y te respondemos con disponibilidad y una propuesta.</p>
+
+          <ul class="datos">
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.300-4.200A8 8 0 1 1 8.400 19z"/></svg>
+              <div><span>WhatsApp</span><a id="dato-whatsapp" href="#contacto">Por agregar</a></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.500 3.500h3l1.500 4-2 1.500a11 11 0 0 0 6 6l1.500-2 4 1.500v3a2 2 0 0 1-2 2A16 16 0 0 1 4.500 5.500a2 2 0 0 1 2-2z"/></svg>
+              <div><span>Teléfono</span><a id="dato-telefono" href="#contacto">Por agregar</a></div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.500 7 8.500 6 8.500-6"/></svg>
+              <div><span>Correo</span><a id="dato-correo" href="#contacto">Por agregar</a></div>
+            </li>
+          </ul>
+
+          <div class="redes" data-redes></div>
+        </div>
+
+        <form class="formulario revelar" id="formulario" novalidate>
+          <div class="campo">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" required>
+          </div>
+          <div class="campo-doble">
+            <div class="campo">
+              <label for="telefono">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" autocomplete="tel" required>
+            </div>
+            <div class="campo">
+              <label for="fecha">Fecha del evento <small>(opcional)</small></label>
+              <input id="fecha" name="fecha" type="date">
+            </div>
+          </div>
+          <div class="campo">
+            <label for="servicio">¿Qué te interesa?</label>
+            <select id="servicio" name="servicio">
+              <option>Bodas</option>
+              <option>XV Años</option>
+              <option>Sesión de estudio</option>
+              <option>Graduación</option>
+              <option>Evento social</option>
+              <option>Video</option>
+              <option>Paquete Esencial</option>
+              <option>Paquete Clásico</option>
+              <option>Paquete Premium</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="4" placeholder="Cuéntanos del evento: lugar, horario, número de invitados…"></textarea>
+          </div>
+          <button class="boton boton--primario boton--ancho" type="submit">Enviar mensaje</button>
+          <p class="formulario__aviso" id="formulario-aviso" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ DIRECCIÓN ============ -->
+    <section class="seccion seccion--tinte" id="direccion">
+      <div class="contenedor ubicacion">
+        <div class="ubicacion__texto revelar">
+          <p class="etiqueta">Dirección</p>
+          <h2>Visítanos en el estudio</h2>
+          <address id="dato-direccion">Dirección por agregar</address>
+
+          <h3 class="ubicacion__sub">Horario</h3>
+          <dl class="horario" id="dato-horario"></dl>
+
+          <a class="boton boton--linea" id="como-llegar" href="#direccion" target="_blank" rel="noopener">Cómo llegar</a>
+        </div>
+
+        <div class="mapa revelar" id="mapa">
+          <div class="mapa__vacio">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.200 7-11.500a7 7 0 0 0-14 0C5 14.800 12 21 12 21z"/><circle cx="12" cy="9.500" r="2.500"/></svg>
+            <p>El mapa aparecerá aquí al agregar la dirección.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="contenedor pie__grid">
+      <div class="pie__marca">
+        <img class="solo-claro" src="img/logo-negro.png" alt="JuvArt, Estudio Fotografía & Video" width="900" height="744" loading="lazy">
+        <img class="solo-oscuro" src="img/logo-blanco.png" alt="JuvArt, Estudio Fotografía & Video" width="900" height="744" loading="lazy">
+      </div>
+
+      <nav class="pie__nav" aria-label="Pie de página">
+        <h3>Secciones</h3>
+        <a href="#inicio">Presentación</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#paquetes">Paquetes</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#direccion">Dirección</a>
+      </nav>
+
+      <div class="pie__redes">
+        <h3>Síguenos</h3>
+        <div class="redes" data-redes></div>
+      </div>
+    </div>
+    <div class="contenedor pie__final">
+      <p>© <span id="anio"></span> JuvArt · Estudio Fotografía &amp; Video</p>
+      <a href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
